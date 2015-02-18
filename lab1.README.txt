@@ -1,1 +1,9 @@
 name, date, description
+
+John Dobson
+2/17/15
+
+Complex shape of 30 vertices and 3 colors created
+ on gray canvas. A,S,D,W keys move shape around,
+ without going past the canvas borders. Pressing 1
+ resets the shape to its original position
