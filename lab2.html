@@ -1,22 +1,32 @@
 <!DOCTYPE html>
+
+<!-- John Dobson -->
+<!-- 2/17/15 -->
 <html>
 <head>
 <script id="vertex-shader" type="x-shader/x-vertex">
-attribute vec4 vPosition;
-void
-main()
+attribute vec4 aVertexPosition;
+uniform mat4 uVertexTranslation;
+attribute vec4 aVertexColor;
+varying vec4 vColor;
+
+void main()
 {
-gl_Position = vPosition;
+gl_Position = uVertexTranslation * aVertexPosition;
+vColor = aVertexColor;
 }
 </script>
+
+
 <script id="fragment-shader" type="x-shader/x-fragment">
 precision mediump float;
-void
-main()
+varying vec4 vColor;
+void main()
 {
-gl_FragColor = vec4( 1.0, 1.0, 1.0, 1.0 );
+gl_FragColor = vColor;
 }
 </script>
+
 <script type="text/javascript" src="../Common/webgl-utils.js"></script>
 <script type="text/javascript" src="../Common/initShaders.js"></script>
 <script type="text/javascript" src="../Common/MV.js"></script>
